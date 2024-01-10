@@ -11,7 +11,7 @@ void MenuLoop();
 
 int main()
 {
-	std::cout << "Welcome to MaddenSynth!" << std::endl << std::endl;;
+	std::cout << "Welcome to MaddenSynth v" << versionNum << "!" << std::endl << std::endl;
 	MenuLoop();
 
 	return 0;
