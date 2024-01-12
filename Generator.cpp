@@ -71,6 +71,11 @@ void MenuLoop()
 		else if (tolower(userOption) == 'r')
 		{
 			LoadScenarios();
+			if (!setupComplete)
+			{
+				std::cout << "Scenario setup failed. Please ensure the scenario files exist and are properly formatted. If this error persists, contact " << AUTHOR_NAME << "." << std::endl << std::endl;
+				return;
+			}
 		}
 		else if (tolower(userOption) == 'q') // Quit case
 		{
