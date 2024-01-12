@@ -60,3 +60,12 @@ int Scenario::GetMaxWeek()
 {
 	return maxWeek;
 }
+
+bool Scenario::IsComplete()
+{
+	if ((title != "0") && (description != "0") && (effects != "0") && (eligiblePeriod != "0") && (minWeek != -1) && (maxWeek != -1))
+	{
+		return true;
+	}
+	return false;
+}

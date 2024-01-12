@@ -18,12 +18,14 @@ class Scenario
 
 		void SetMaxWeek(int newMaxWeek);
 		int GetMaxWeek();
+
+		bool IsComplete();
 	private:
-		std::string title;
-		std::string description;
-		std::string effects;
-		std::string eligiblePeriod;
-		int minWeek;
-		int maxWeek;
+		std::string title = "0";
+		std::string description = "0";
+		std::string effects = "0";
+		std::string eligiblePeriod = "0";
+		int minWeek = -1;
+		int maxWeek = -1;
 
 };
