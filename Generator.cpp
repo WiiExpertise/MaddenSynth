@@ -173,7 +173,6 @@ void LoadScenarios()
 				{
 					scenarioList.push_back(newScenario);
 				}
-				newScenario.DebugPrint();
 			}
 			else 
 			{
