@@ -8,8 +8,20 @@
 // Constant to represent program version
 const std::string versionNum = "DEVELOPMENT";
 
+// Storage of all scenario objects
+vector<Scenario> scenarioList;
+
+// Global variable to check if scenarios have been loaded
+bool setupComplete = false;
+
 // Loop function for main menu options
 void MenuLoop();
+
+// Primary worker function to generate a scenario
+void GenerateScenario();
+
+// Parses text files into scenario objects
+void LoadScenarios();
 
 int main()
 {
@@ -44,4 +56,17 @@ void MenuLoop()
 			std::cout << std::endl << "Invalid option. Please try again." << std::endl << std::endl;
 		}
 	}
+}
+
+void GenerateScenario()
+{
+	if (!setupComplete)
+	{
+		LoadScenarios();
+	}
+}
+
+void LoadScenarios()
+{
+
 }
