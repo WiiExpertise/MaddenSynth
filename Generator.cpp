@@ -2,6 +2,8 @@
 #include <fstream>
 #include <vector>
 #include <cstdlib>
+#include <filesystem>
+#include "Scenario.h"
 
 // Constant to represent program version
 const std::string versionNum = "DEVELOPMENT";
