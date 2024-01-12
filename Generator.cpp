@@ -11,10 +11,10 @@ namespace fs = std::filesystem;
 const std::string PROGRAM_NAME = "MaddenSynth";
 
 // Constant to represent program version
-const std::string versionNum = "DEVELOPMENT";
+const std::string VERSION_NUM = "DEVELOPMENT";
 
 // Constant for program author name (used for error messaging)
-const std::string authorName = "WiiMaster";
+const std::string AUTHOR_NAME = "WiiMaster";
 
 // Storage of all scenario objects
 std::vector<Scenario> scenarioList;
@@ -42,7 +42,7 @@ void LoadTeams();
 
 int main()
 {
-	std::cout << "Welcome to " << PROGRAM_NAME << " v" << versionNum << "!" << std::endl << std::endl;
+	std::cout << "Welcome to " << PROGRAM_NAME << " v" << VERSION_NUM << "!" << std::endl << std::endl;
 	MenuLoop();
 
 	return 0;
@@ -87,7 +87,7 @@ void GenerateScenario()
 		LoadScenarios();
 		if (!setupComplete)
 		{
-			std::cout << "Scenario setup failed, aborting. Please ensure the scenario files exist and are properly formatted. If this error persists, contact " << authorName << "." << std::endl << std::endl;
+			std::cout << "Scenario setup failed, aborting. Please ensure the scenario files exist and are properly formatted. If this error persists, contact " << AUTHOR_NAME << "." << std::endl << std::endl;
 			return;
 		}
 	}
@@ -97,7 +97,7 @@ void GenerateScenario()
 		LoadTeams();
 		if (!teamsLoaded)
 		{
-			std::cout << "Team setup failed, aborting. Please ensure the team list file exists and is properly formatted. If this error persists, contact " << authorName << "." << std::endl << std::endl;
+			std::cout << "Team setup failed, aborting. Please ensure the team list file exists and is properly formatted. If this error persists, contact " << AUTHOR_NAME << "." << std::endl << std::endl;
 			return;
 		}
 	}
