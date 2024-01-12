@@ -10,6 +10,9 @@ namespace fs = std::filesystem;
 // Constant to represent program version
 const std::string versionNum = "DEVELOPMENT";
 
+// Constant for program author name (used for error messaging)
+const std::string authorName = "WiiMaster";
+
 // Storage of all scenario objects
 std::vector<Scenario> scenarioList;
 
@@ -79,11 +82,21 @@ void GenerateScenario()
 	if (!setupComplete)
 	{
 		LoadScenarios();
+		if (!setupComplete)
+		{
+			std::cout << "Scenario setup failed, aborting. Please ensure the scenario files exist and are properly formatted. If this error persists, contact " << authorName << "." << std::endl << std::endl;
+			return;
+		}
 	}
 
 	if (!teamsLoaded)
 	{
 		LoadTeams();
+		if (!teamsLoaded)
+		{
+			std::cout << "Team setup failed, aborting. Please ensure the team list file exists and is properly formatted. If this error persists, contact " << authorName << "." << std::endl << std::endl;
+			return;
+		}
 	}
 }
 
@@ -141,6 +154,16 @@ void LoadScenarios()
 				std::cout << "Unable to open file: " << entry.path() << std::endl << std::endl;
 			}
 		}
+	}
+
+	// Check if scenario setup was successful and adjust bool accordingly
+	if (scenarioList.size() > 0)
+	{
+		setupComplete = true;
+	}
+	else
+	{
+		setupComplete = false;
 	}
 }
 
