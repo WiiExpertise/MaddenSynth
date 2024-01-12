@@ -65,7 +65,8 @@ void MenuLoop()
 
 		if (tolower(userOption) == 'g')
 		{
-			std::cout << std::endl << "Function not yet implemented." << std::endl << std::endl;
+			//std::cout << std::endl << "Function not yet implemented." << std::endl << std::endl;
+			GenerateScenario();
 		}
 		else if (tolower(userOption) == 'r')
 		{
