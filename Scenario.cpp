@@ -69,3 +69,13 @@ bool Scenario::IsComplete()
 	}
 	return false;
 }
+
+void Scenario::DebugPrint()
+{
+	std::cout << "Title: " << title << std::endl;
+	std::cout << "Description: " << description << std::endl;
+	std::cout << "Effects: " << effects << std::endl;
+	std::cout << "Eligible Period: " << eligiblePeriod << std::endl;
+	std::cout << "Min Week: " << minWeek << std::endl;
+	std::cout << "Max Week: " << maxWeek << std::endl;
+}

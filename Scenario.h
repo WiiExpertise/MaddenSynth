@@ -20,6 +20,8 @@ class Scenario
 		int GetMaxWeek();
 
 		bool IsComplete();
+
+		void DebugPrint();
 	private:
 		std::string title = "0";
 		std::string description = "0";
