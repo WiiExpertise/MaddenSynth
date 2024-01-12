@@ -75,7 +75,6 @@ void MenuLoop()
 			if (!setupComplete)
 			{
 				std::cout << "Scenario setup failed. Please ensure the scenario files exist and are properly formatted. If this error persists, contact " << AUTHOR_NAME << "." << std::endl << std::endl;
-				return;
 			}
 		}
 		else if (tolower(userOption) == 't')
@@ -84,7 +83,6 @@ void MenuLoop()
 			if (!teamsLoaded)
 			{
 				std::cout << "Team setup failed. Please ensure the team list file exists and is properly formatted. If this error persists, contact " << AUTHOR_NAME << "." << std::endl << std::endl;
-				return;
 			}
 		}
 		else if (tolower(userOption) == 'q') // Quit case
