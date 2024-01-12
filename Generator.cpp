@@ -7,6 +7,9 @@
 
 namespace fs = std::filesystem;
 
+// Constant to represent program name
+const std::string PROGRAM_NAME = "MaddenSynth";
+
 // Constant to represent program version
 const std::string versionNum = "DEVELOPMENT";
 
@@ -39,7 +42,7 @@ void LoadTeams();
 
 int main()
 {
-	std::cout << "Welcome to MaddenSynth v" << versionNum << "!" << std::endl << std::endl;
+	std::cout << "Welcome to " << PROGRAM_NAME << " v" << versionNum << "!" << std::endl << std::endl;
 	MenuLoop();
 
 	return 0;
@@ -53,7 +56,7 @@ void MenuLoop()
 		std::cout << "MAIN MENU\nOptions:" << std::endl;
 		std::cout << "g - Generate a scenario" << std::endl;
 		std::cout << "r - Reload scenarios" << std::endl;
-		std::cout << "q - Quit MaddenSynth" << std::endl;
+		std::cout << "q - Quit " << PROGRAM_NAME << std::endl;
 		std::cout << std::endl;
 		std::cout << "Select an option: ";
 		std::cin >> userOption;
