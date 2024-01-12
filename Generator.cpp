@@ -191,6 +191,8 @@ void LoadScenarios()
 	{
 		setupComplete = false;
 	}
+
+	std::cout << std::endl;
 }
 
 void LoadTeams()
@@ -228,4 +230,5 @@ void LoadTeams()
 		teamsLoaded = false;
 	}
 
+	std::cout << std::endl;
 }
