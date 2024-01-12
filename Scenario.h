@@ -1,5 +1,14 @@
+#include <string>
+
 class Scenario
 {
+	private:
+		std::string title = "0";
+		std::string description = "0";
+		std::string effects = "0";
+		std::string eligiblePeriod = "0";
+		int minWeek = -1;
+		int maxWeek = -1;
 	public:
 		void SetTitle(std::string newTitle);
 		std::string GetTitle();
@@ -22,12 +31,4 @@ class Scenario
 		bool IsComplete();
 
 		void DebugPrint();
-	private:
-		std::string title = "0";
-		std::string description = "0";
-		std::string effects = "0";
-		std::string eligiblePeriod = "0";
-		int minWeek = -1;
-		int maxWeek = -1;
-
 };
