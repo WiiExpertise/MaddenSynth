@@ -3,6 +3,7 @@
 #include <vector>
 #include <cstdlib>
 #include <filesystem>
+#include <ctime>
 #include "Scenario.h"
 
 namespace fs = std::filesystem;
@@ -42,6 +43,7 @@ void LoadTeams();
 
 int main()
 {
+	srand(time(NULL));
 	std::cout << "Welcome to " << PROGRAM_NAME << " v" << VERSION_NUM << "!" << std::endl << std::endl;
 	MenuLoop();
 
@@ -101,6 +103,13 @@ void GenerateScenario()
 			return;
 		}
 	}
+
+	// Generate index of random team in team list
+	int randomTeamIndex = rand() % teamList.size();
+
+	std::cout << "Randomly selected team: " << teamList[randomTeamIndex] << std::endl;
+
+	std::cout << std::endl;
 }
 
 void LoadScenarios()
