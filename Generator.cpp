@@ -58,6 +58,7 @@ void MenuLoop()
 		std::cout << "MAIN MENU\nOptions:" << std::endl;
 		std::cout << "g - Generate a scenario" << std::endl;
 		std::cout << "r - Reload scenarios" << std::endl;
+		std::cout << "t - Reload teams" << std::endl;
 		std::cout << "q - Quit " << PROGRAM_NAME << std::endl;
 		std::cout << std::endl;
 		std::cout << "Select an option: ";
@@ -74,6 +75,15 @@ void MenuLoop()
 			if (!setupComplete)
 			{
 				std::cout << "Scenario setup failed. Please ensure the scenario files exist and are properly formatted. If this error persists, contact " << AUTHOR_NAME << "." << std::endl << std::endl;
+				return;
+			}
+		}
+		else if (tolower(userOption) == 't')
+		{
+			LoadTeams();
+			if (!teamsLoaded)
+			{
+				std::cout << "Team setup failed. Please ensure the team list file exists and is properly formatted. If this error persists, contact " << AUTHOR_NAME << "." << std::endl << std::endl;
 				return;
 			}
 		}
