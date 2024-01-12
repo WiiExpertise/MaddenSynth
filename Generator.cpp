@@ -13,8 +13,14 @@ const std::string versionNum = "DEVELOPMENT";
 // Storage of all scenario objects
 std::vector<Scenario> scenarioList;
 
+// Storage of all teams
+std::vector<std::string> teamList;
+
 // Global variable to check if scenarios have been loaded
 bool setupComplete = false;
+
+// Global variable to check if teams have been loaded
+bool teamsLoaded = false;
 
 // Loop function for main menu options
 void MenuLoop();
@@ -24,6 +30,9 @@ void GenerateScenario();
 
 // Parses text files into scenario objects
 void LoadScenarios();
+
+// Parses team file into team list
+void LoadTeams();
 
 int main()
 {
@@ -70,6 +79,11 @@ void GenerateScenario()
 	if (!setupComplete)
 	{
 		LoadScenarios();
+	}
+
+	if (!teamsLoaded)
+	{
+		LoadTeams();
 	}
 }
 
@@ -128,4 +142,41 @@ void LoadScenarios()
 			}
 		}
 	}
+}
+
+void LoadTeams()
+{
+	std::string teamListPath = "teams/teams.txt";
+
+	std::ifstream teams(teamListPath);
+
+	// Throw error if unable to open teams list file
+	if (!teams.is_open())
+	{
+		std::cout << "ERROR: Unable to open teams list file" << std::endl << std::endl;
+		teamsLoaded = false;
+		return;
+	}
+
+	// Empty team list before loading teams
+	teamList.clear();
+
+	std::string newTeam;
+
+	// Add every line of teams file to team list
+	while (std::getline(teams, newTeam))
+	{
+		teamList.push_back(newTeam);
+	}
+
+	// Check if teams were successfully loaded and adjust bool accordingly
+	if (teamList.size() > 0)
+	{
+		teamsLoaded = true;
+	}
+	else
+	{
+		teamsLoaded = false;
+	}
+
 }
