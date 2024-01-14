@@ -1,6 +1,6 @@
-Testing Scenario
-This is just a test scenario for MaddenSynth.
-No user action is required.
-N/A
-0
-0
+Slippery When Wet
+The team's starting running back slipped and fell while walking by his pool at home.
+The starting RB is out with a fractured elbow for 12 weeks.
+R
+1
+18
