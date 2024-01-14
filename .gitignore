@@ -1,2 +1,4 @@
 *.exe
-./*.txt
+ScenarioTemplate.txt
+README.txt
+*.zip
