@@ -67,7 +67,9 @@ void MenuLoop()
 		if (tolower(userOption) == 'g')
 		{
 			//std::cout << std::endl << "Function not yet implemented." << std::endl << std::endl;
+			system("cls");
 			GenerateScenario();
+			system("cls");
 		}
 		else if (tolower(userOption) == 'r')
 		{
@@ -75,7 +77,11 @@ void MenuLoop()
 			if (!setupComplete)
 			{
 				std::cout << "Scenario setup failed. Please ensure the scenario files exist and are properly formatted. If this error persists, contact " << AUTHOR_NAME << "." << std::endl << std::endl;
+				std::cin.ignore();
+				std::cout << "Press enter to continue...";
+				std::cin.get();
 			}
+			system("cls");
 		}
 		else if (tolower(userOption) == 't')
 		{
@@ -83,7 +89,11 @@ void MenuLoop()
 			if (!teamsLoaded)
 			{
 				std::cout << "Team setup failed. Please ensure the team list file exists and is properly formatted. If this error persists, contact " << AUTHOR_NAME << "." << std::endl << std::endl;
+				std::cin.ignore();
+				std::cout << "Press enter to continue...";
+				std::cin.get();
 			}
+			system("cls");
 		}
 		else if (tolower(userOption) == 'q') // Quit case
 		{
@@ -104,6 +114,9 @@ void GenerateScenario()
 		if (!setupComplete)
 		{
 			std::cout << "Scenario setup failed, aborting. Please ensure the scenario files exist and are properly formatted. If this error persists, contact " << AUTHOR_NAME << "." << std::endl << std::endl;
+			std::cin.ignore();
+			std::cout << "Press enter to continue...";
+			std::cin.get();
 			return;
 		}
 	}
@@ -114,14 +127,101 @@ void GenerateScenario()
 		if (!teamsLoaded)
 		{
 			std::cout << "Team setup failed, aborting. Please ensure the team list file exists and is properly formatted. If this error persists, contact " << AUTHOR_NAME << "." << std::endl << std::endl;
+			std::cin.ignore();
+			std::cout << "Press enter to continue...";
+			std::cin.get();
 			return;
 		}
 	}
 
 	// Generate index of random team in team list
 	int randomTeamIndex = rand() % teamList.size();
+	
+	// Variable to hold season status
+	char seasonStatus;
 
-	std::cout << "Randomly selected team: " << teamList[randomTeamIndex] << std::endl;
+	// Prompt user for season status
+	std::cout << "What stage is your franchise in? Enter P for preseason, R for regular season, or O for offseason: ";
+	std::cin >> seasonStatus;
+	std::cout << std::endl;
+
+	// Validate season status options
+	while ((toupper(seasonStatus) != 'R') && (toupper(seasonStatus) != 'P') && (toupper(seasonStatus) != 'O'))
+	{
+		std::cout << "Invalid status. Please try again." << std::endl << std::endl;
+		std::cout << "What stage is your franchise in? Enter P for preseason, R for regular season, or O for offseason: ";
+		std::cin >> seasonStatus;
+		std::cout << std::endl;
+	}
+
+	int currentWeek = -1;
+
+	// Prompt and validate current week for regular season and preseason status
+	if ((toupper(seasonStatus) == 'R') || (toupper(seasonStatus) == 'P'))
+	{
+		std::cout << "What week number is it? ";
+		std::cin >> currentWeek;
+
+		if ((toupper(seasonStatus) == 'P'))
+		{
+			while ((currentWeek < 1) || (currentWeek > 4))
+			{
+				std::cout << "That's not a possible preseason week! Try again." << std::endl << std::endl;
+				std::cout << "What week number is it? ";
+				std::cin >> currentWeek;
+			}
+		}
+		else if ((toupper(seasonStatus) == 'R'))
+		{
+			while ((currentWeek < 1) || (currentWeek > 18))
+			{
+				std::cout << "That's not a possible regular season week! Try again." << std::endl << std::endl;
+				std::cout << "What week number is it? ";
+				std::cin >> currentWeek;
+			}
+		}
+	}
+
+	std::cout << std::endl;
+
+	bool acceptableScenario = false;
+	int randomScenarioIndex;
+
+	while (!acceptableScenario)
+	{
+		// Generate index of random scenario in scenario list
+		randomScenarioIndex = rand() % scenarioList.size();
+
+		if ((toupper(seasonStatus) == 'R') && ((scenarioList[randomScenarioIndex].GetEligiblePeriod() != "R") && (scenarioList[randomScenarioIndex].GetEligiblePeriod() != "r")))
+		{
+			continue; // Scenario is not eligible for current season status (regular season)
+		}
+
+		if ((toupper(seasonStatus) == 'P') && ((scenarioList[randomScenarioIndex].GetEligiblePeriod() != "P") && (scenarioList[randomScenarioIndex].GetEligiblePeriod() != "p")))
+		{
+			continue; // Scenario is not eligible for current season status (preseason)
+		}
+
+		if ((toupper(seasonStatus) == 'O') && ((scenarioList[randomScenarioIndex].GetEligiblePeriod() != "O") && (scenarioList[randomScenarioIndex].GetEligiblePeriod() != "o")))
+		{
+			continue; // Scenario is not eligible for current season status (preseason)
+		}
+
+		if (((toupper(seasonStatus) == 'R') || (toupper(seasonStatus) == 'P')) && ((currentWeek < scenarioList[randomScenarioIndex].GetMinWeek()) || (currentWeek > scenarioList[randomScenarioIndex].GetMaxWeek())))
+		{
+			continue; // Scenario is not eligible based on current week
+		}
+
+
+		acceptableScenario = true; // Otherwise, scenario must be eligible so break loop
+	}
+
+	std::cout << teamList[randomTeamIndex] << " - ";
+	scenarioList[randomScenarioIndex].Print();
+
+	std::cin.ignore();
+	std::cout << "Press enter to continue...";
+	std::cin.get();
 
 	std::cout << std::endl;
 }
@@ -191,7 +291,7 @@ void LoadScenarios()
 		setupComplete = false;
 	}
 
-	std::cout << std::endl;
+	//std::cout << std::endl;
 }
 
 void LoadTeams()
@@ -228,6 +328,4 @@ void LoadTeams()
 	{
 		teamsLoaded = false;
 	}
-
-	std::cout << std::endl;
 }
