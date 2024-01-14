@@ -12,7 +12,7 @@ namespace fs = std::filesystem;
 const std::string PROGRAM_NAME = "MaddenSynth";
 
 // Constant to represent program version
-const std::string VERSION_NUM = "DEVELOPMENT";
+const std::string VERSION_NUM = "0.1";
 
 // Constant for program author name (used for error messaging)
 const std::string AUTHOR_NAME = "WiiMaster";
