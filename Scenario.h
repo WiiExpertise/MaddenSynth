@@ -30,5 +30,7 @@ class Scenario
 
 		bool IsComplete();
 
+		void Print();
+
 		void DebugPrint();
 };

@@ -70,6 +70,14 @@ bool Scenario::IsComplete()
 	return false;
 }
 
+void Scenario::Print()
+{
+	std::cout << title << ":" << std::endl;
+	std::cout << description << std::endl;
+
+	std::cout << std::endl << "Effects: " << effects << std::endl << std::endl;
+}
+
 void Scenario::DebugPrint()
 {
 	std::cout << "Title: " << title << std::endl;
