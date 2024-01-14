@@ -1,32 +1,32 @@
-Steelers
-Bengals
-Browns
-Ravens
-Patriots
-Bills
-Jets
-Dolphins
-Titans
-Colts
-Texans
-Jaguars
-Chiefs
-Raiders
-Broncos
-Chargers
-Packers
-Bears
-Vikings
-Lions
-Cowboys
-Giants
-Eagles
-Commanders
-Buccaneers
-Saints
-Falcons
-Panthers
-49ers
-Seahawks
-Cardinals
-Rams
+Pittsburgh Steelers
+Cincinnati Bengals
+Cleveland Browns
+Baltimore Ravens
+New England Patriots
+Buffalo Bills
+New York Jets
+Miami Dolphins
+Tennessee Titans
+Indianapolis Colts
+Houston Texans
+Jacksonville Jaguars
+Kansas City Chiefs
+Las Vegas Raiders
+Denver Broncos
+Los Angeles Chargers
+Green Bay Packers
+Chicago Bears
+Minnesota Vikings
+Detroit Lions
+Dallas Cowboys
+New York Giants
+Philadelphia Eagles
+Washington Commanders
+Tampa Bay Buccaneers
+New Orleans Saints
+Atlanta Falcons
+Carolina Panthers
+San Francisco 49ers
+Seattle Seahawks
+Arizona Cardinals
+Los Angeles Rams
